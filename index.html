@@ -1,477 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth scroll-pt-28">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NETWORX. | Enterprise AI Growth Systems</title>
-    <meta name="description"
-        content="We fix 'Digital Leaks' with AI Agents, Viral Content, and Systems. Calculate your efficiency score today.">
-
-    <!-- Fonts: Inter for clean, modern readability -->
+    <title>NETWORX | Executive Growth Partner</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="icon" type="image/png" href="logo.png">
-
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#000000', // Vantablack
+                        surface: '#0a0a0a',
+                        accent: '#4f46e5', // Muted Indigo
+                        gold: '#d4af37', // Muted Gold
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        tighter: '-.04em',
+                        widest: '.25em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Aesthetics (Brutalist Luxury) -->
+    <style>
+        body { 
+            background-color: #000000; 
+            color: #ffffff; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        ::selection {
+            background-color: rgba(212, 175, 55, 0.3); /* Gold selection */
+            color: #ffffff;
+        }
+
+        /* Sophisticated Slow Fade-Up */
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(40px); 
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        .delay-100 { transition-delay: 150ms; }
+        .delay-200 { transition-delay: 300ms; }
+        
+        /* Brutalist Inputs */
+        .brutalist-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0;
+            padding: 1rem 0;
+            color: #ffffff;
+            transition: all 0.4s ease;
+        }
+        .brutalist-input:focus {
+            outline: none;
+            border-bottom-color: #d4af37; /* Gold accent on focus */
+            box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.1);
+        }
+        .brutalist-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+            transition: opacity 0.3s ease;
+        }
+        .brutalist-input:focus::placeholder {
+            opacity: 0.2;
+        }
+
+        /* Nav Transition */
+        #navbar { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .nav-scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        /* Rare subtle glow */
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.05);
+        }
+    </style>
 </head>
-
-<body>
-
-    <!-- Maintenance Overlay -->
-    <div id="maintenance-overlay" class="maintenance-overlay">
-        <div class="maintenance-content">
-            <div class="warning-icon">
-                <i data-lucide="alert-triangle" size="64"></i>
-            </div>
-            <h2 class="text-indigo font-bold tracking-widest uppercase text-sm mb-4">Building Phase</h2>
-            <h1>Coming Soon.</h1>
-            <p>Our team is currently engineering the future of autonomous growth. Please check back in a few days.</p>
-
-            <div class="auth-form">
-                <input type="password" id="auth-password" class="auth-input" placeholder="••••••">
-                <button id="auth-submit" class="auth-btn">Admin Access</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cinematic Noise Texture -->
-    <div class="noise-overlay"></div>
+<body class="font-sans overflow-x-hidden relative">
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-glass">
-            <a href="#" class="brand">
-                <img src="logo.png" alt="NETWORX." class="h-10 w-auto">
-            </a>
-
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <div class="dropdown">
-                    <button class="dropbtn">Services <i data-lucide="chevron-down" size="14"></i></button>
-                    <div class="dropdown-content">
-                        <a href="#digital-presence"><i data-lucide="globe" size="16"></i> Digital Presence</a>
-                        <a href="#agentic-ai"><i data-lucide="brain-circuit" size="16"></i> Agentic AI</a>
-                    </div>
+    <nav id="navbar" class="fixed w-full z-50 py-6 md:py-8 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+                <img src="logo.png" alt="Networx Logo" class="h-7 sm:h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105">
+                <div class="font-heading font-bold text-lg sm:text-xl tracking-widest uppercase text-white">
+                    NETWORX<span class="text-gold">.</span>
                 </div>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-            <div class="nav-actions flex-center gap-4">
-                <!-- Hero CTA -->
-                <a href="#audit" class="btn-primary hidden-mobile"
-                    style="background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); border:none;">
-                    Free Audit <i data-lucide="arrow-right" size="16"></i>
-                </a>
-
-                <!-- Mobile Menu Toggle -->
-                <button class="menu-toggle btn-icon text-white md:hidden" id="menuToggle"
-                    style="background:none; border:none; cursor:pointer;">
-                    <i data-lucide="menu"></i>
-                </button>
-            </div>
+            </a>
+            <a href="#contact" class="px-4 py-2 md:px-6 md:py-2.5 text-[10px] sm:text-xs tracking-widest uppercase font-medium bg-transparent border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-500 text-white shrink-0 text-center">
+                Audit Authority
+            </a>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#" class="mobile-link">Home</a>
-        <div
-            style="border-top:1px solid rgba(255,255,255,0.1); border-bottom:1px solid rgba(255,255,255,0.1); padding: 10px 0;">
-            <p class="text-muted text-xs uppercase tracking-widest text-center mb-2">Services</p>
-            <a href="#digital-presence" class="mobile-link text-sm">Digital Presence</a>
-            <a href="#agentic-ai" class="mobile-link text-sm">Agentic AI</a>
+    <!-- SECTION 1: The Hero Area -->
+    <section class="min-h-[90vh] flex items-center pt-32 pb-20 md:pt-40 md:pb-24 px-6 relative">
+        <div class="max-w-6xl mx-auto w-full fade-in">
+            <div class="grid lg:grid-cols-12 gap-8 md:gap-12 items-end">
+                <div class="lg:col-span-9">
+                    <h1 class="font-heading text-[3.5rem] leading-[1] md:text-[7.5rem] font-bold md:leading-[0.95] tracking-tighter text-white mb-8 md:mb-10 break-words">
+                        Run The Empire.<br>
+                        <span class="text-zinc-500">We Build The Shadow.</span>
+                    </h1>
+                </div>
+                <div class="lg:col-span-3 lg:pb-4">
+                    <p class="text-base md:text-xl text-zinc-300 font-light leading-relaxed mb-8 md:mb-10 border-l-2 border-zinc-800 pl-4 md:pl-6">
+                        Engineering Digital Authority for busy executives. <strong class="text-white font-medium">15 minutes</strong> of raw voice notes = 30 days of high-converting inbound influence.
+                        <br><br>
+                        100% Asynchronous. Zero Zoom calls.
+                    </p>
+                    <a href="#contact" class="flex items-center justify-center w-full px-8 py-5 bg-white text-black font-semibold text-sm uppercase tracking-widest hover:bg-zinc-200 active:scale-[0.98] transition-all duration-500">
+                        Audit Your Authority
+                    </a>
+                </div>
+            </div>
         </div>
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-        <a href="#audit" class="mobile-link text-indigo font-bold">Free Audit</a>
-        <button id="closeMenu"
-            style="position: absolute; top: 2rem; right: 2rem; background:none; border:none; color:white;"><i
-                data-lucide="x" size="32"></i></button>
-    </div>
+    </section>
 
-    <main>
-
-        <!-- Hero Section -->
-        <section class="hero text-center" style="padding-bottom: 4rem;">
-            <!-- Ambient Background Glows -->
-            <div
-                class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none">
-            </div>
-            <div
-                class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-[120px] pointer-events-none">
-            </div>
-
-            <div class="container fade-up" style="position: relative; z-index: 2;">
-                <div class="flex-center gap-4 mb-8">
-                    <div class="badge active">
-                        <span class="pulse-dot"></span> Accepting Clients
-                    </div>
-                </div>
-
-                <h1 class="hero-title">
-                    Digital Growth <br>
-                    <span class="text-gradient">Engineered.</span>
-                </h1>
-
-                <p class="hero-desc mx-auto">
-                    We build autonomous <strong>AI Systems</strong> and <strong>Viral Engines</strong> that scale your
-                    business. Clear, simple, and data-driven.
+    <!-- SECTION 2: The Core Problem -->
+    <section class="py-24 md:py-40 px-6 bg-surface border-y border-white/5">
+        <div class="max-w-4xl mx-auto fade-in">
+            <h2 class="font-heading text-4xl md:text-6xl font-bold leading-[1.1] tracking-tighter mb-10 md:mb-12">
+                You just crushed the pitch. <br>
+                <span class="text-accent">But the $100k deal still stalled.</span>
+            </h2>
+            <div class="space-y-6 md:space-y-8 text-lg md:text-2xl text-zinc-300 font-light leading-relaxed max-w-3xl">
+                <p>
+                    Why? Because while you pitched the CEO, mid-level managers vetted your digital footprint in private Slack channels.
                 </p>
-
-                <div class="flex-center flex-col md:flex-row gap-4">
-                    <a href="#services" class="btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">
-                        <i data-lucide="layout-grid"></i> Services
-                    </a>
-                    <a href="#portfolio"
-                        class="text-white hover:text-indigo transition-colors font-medium flex-center gap-2">
-                        View Work <i data-lucide="chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Positioning Intro -->
-        <section style="padding: 0; margin-top: -2rem;">
-            <div class="container text-center">
-                <p class="text-muted font-lg italic" style="max-width: 800px; margin: 0 auto; line-height: 1.4;">
-                    "We don't just build your <strong>Digital Presence</strong>; we engineer the <strong>Agentic
-                        Brains</strong> that keep it running autonomously."
+                <p class="text-white font-medium text-xl md:text-3xl border-l-4 border-accent pl-4 py-1">
+                    They found a ghost.
+                </p>
+                <p>
+                    A weak personal brand doesn't just cost you likes; it silently kills enterprise deals. In the premium B2B space, authority is the only currency that bypasses friction.
                 </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Services Section -->
-        <section id="services">
-            <div class="container">
-                <div class="text-center mb-16 fade-up">
-                    <h2 class="text-indigo font-bold text-sm tracking-widest uppercase mb-2">Capabilities</h2>
-                    <h3 class="font-2xl font-bold">The Two Pillars of Growth</h3>
-                </div>
-
-                <div class="solutions-grid fade-up"
-                    style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-
-                    <!-- Pillar 1: Digital Presence -->
-                    <div id="digital-presence" class="card-base tier-card" style="scroll-margin-top: 100px;">
-                        <div class="mb-8">
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="bg-blue-500/10 p-3 rounded-lg text-blue">
-                                    <i data-lucide="globe" size="24"></i>
-                                </div>
-                                <h4 class="font-xl font-bold">Digital Presence</h4>
-                            </div>
-                            <p class="text-muted font-sm">The Foundation: Establishing a powerful, authoritative
-                                position on the internet.</p>
-                        </div>
-                        <ul class="flex flex-col gap-6 flex-1">
-                            <li class="flex gap-4 items-start">
-                                <i data-lucide="layout" class="text-blue mt-1" size="18"></i>
-                                <div>
-                                    <strong class="block text-white mb-1">Custom Web Architecture</strong>
-                                    <span class="text-muted font-sm">Scratch-built, high-performance websites designed
-                                        to mirror your unique brand identity.</span>
-                                </div>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <i data-lucide="search" class="text-blue mt-1" size="18"></i>
-                                <div>
-                                    <strong class="block text-white mb-1">Search Authority & Visibility</strong>
-                                    <span class="text-muted font-sm">Technical and Local SEO strategies to dominate the
-                                        first page of Google.</span>
-                                </div>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <i data-lucide="smartphone-nfc" class="text-blue mt-1" size="18"></i>
-                                <div>
-                                    <strong class="block text-white mb-1">NFC-Digital Integration</strong>
-                                    <span class="text-muted font-sm">Digital menus and review systems for physical
-                                        businesses (TapFlow style integration).</span>
-                                </div>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <i data-lucide="shield-check" class="text-blue mt-1" size="18"></i>
-                                <div>
-                                    <strong class="block text-white mb-1">Brand Ecosystem Design</strong>
-                                    <span class="text-muted font-sm">Consistent visual identity across all social
-                                        handles to build long-term authority.</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Pillar 2: Agentic Workflow -->
-                    <div id="agentic-ai" class="card-base tier-card" style="scroll-margin-top: 100px;">
-                        <div class="mb-8">
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="bg-indigo-500/10 p-3 rounded-lg text-indigo">
-                                    <i data-lucide="brain-circuit" size="24"></i>
-                                </div>
-                                <h4 class="font-xl font-bold">Agentic Workflow</h4>
-                            </div>
-                            <p class="text-muted font-sm">The Intelligence: Using AI to make autonomous decisions and
-                                execute complex tasks.</p>
-                        </div>
-                        <ul class="flex flex-col gap-6 flex-1">
-                            <li class="flex gap-4 items-start">
-                                <i data-lucide="bot" class="text-indigo mt-1" size="18"></i>
-                                <div>
-                                    <strong class="block text-white mb-1">Autonomous Decision Agents</strong>
-                                    <span class="text-muted font-sm">AI that doesn't just chat, but books appointments
-                                        and updates databases using business logic.</span>
-                                </div>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <i data-lucide="network" class="text-indigo mt-1" size="18"></i>
-                                <div>
-                                    <strong class="block text-white mb-1">Multi-Agent Orchestration</strong>
-                                    <span class="text-indigo font-bold font-xs mb-1 block">CrewAI | LangChain</span>
-                                    <span class="text-muted font-sm">Designing agent networks that handle entire
-                                        projects from research to content publishing.</span>
-                                </div>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <i data-lucide="zap" class="text-indigo mt-1" size="18"></i>
-                                <div>
-                                    <strong class="block text-white mb-1">Intelligent Business Automation</strong>
-                                    <span class="text-indigo font-bold font-xs mb-1 block">n8n | Make.com</span>
-                                    <span class="text-muted font-sm">Complicated workflows where AI agents reason
-                                        through every step of the process.</span>
-                                </div>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <i data-lucide="mic-2" class="text-indigo mt-1" size="18"></i>
-                                <div>
-                                    <strong class="block text-white mb-1">Customer Interaction Agents</strong>
-                                    <span class="text-muted font-sm">Voice and text-based strategic agents built for
-                                        lead generation and priority support.</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- SECTION 3: The 1-Hour Monthly System -->
+    <section class="py-24 md:py-40 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 md:mb-24 fade-in">
+                <h2 class="font-heading text-4xl md:text-6xl font-bold tracking-tighter mb-4 md:mb-6">The System</h2>
+                <p class="text-sm md:text-xl text-zinc-500 font-light tracking-widest uppercase">1 Hour A Month. Total Ecosystem Dominance.</p>
             </div>
-        </section>
 
-
-
-        <!-- ROI Calculator Section -->
-        <section id="calculator" class="bg-black/20">
-            <div class="container fade-up">
-                <div class="text-center mb-16">
-                    <h2 class="text-indigo font-bold text-sm tracking-widest uppercase mb-2">ROI Calculator</h2>
-                    <h3 class="font-2xl font-bold">Measure the Impact</h3>
-                </div>
-
-                <div class="roi-card mx-auto">
-                    <div class="roi-grid">
-                        <div class="flex flex-col gap-8">
-                            <div class="slider-container">
-                                <div class="slider-label">
-                                    <span>Team Size (Manual Tasks)</span>
-                                    <span class="slider-val" id="team-val">5</span>
-                                </div>
-                                <input type="range" id="team-size" min="1" max="50" value="5" class="accent-indigo">
-                            </div>
-
-                            <div class="slider-container">
-                                <div class="slider-label">
-                                    <span>Avg. Hourly Rate ($)</span>
-                                    <span class="slider-val" id="rate-val">25</span>
-                                </div>
-                                <input type="range" id="hourly-rate" min="10" max="200" value="25"
-                                    class="accent-indigo">
-                            </div>
-
-                            <div class="slider-container">
-                                <div class="slider-label">
-                                    <span>Manual Hours per Week</span>
-                                    <span class="slider-val" id="hours-val">20</span>
-                                </div>
-                                <input type="range" id="manual-hours" min="5" max="40" value="20" class="accent-green">
-                            </div>
-                        </div>
-
-                        <div class="roi-results flex-center flex-col">
-                            <p class="text-muted uppercase tracking-widest font-bold font-xs mb-4">Estimated Annual
-                                Savings</p>
-                            <div class="font-2xl font-bold text-gradient mb-2" id="savings-display">$26,000</div>
-                            <p class="text-muted font-sm">By automating 50% of manual tasks</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tech Stack -->
-        <section id="tech" class="border-y border-white/5 bg-black/50">
-            <div class="container text-center fade-up">
-                <p class="text-muted uppercase tracking-widest font-bold font-xs mb-8">Platform Expertise</p>
-                <div class="tech-cloud">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag text-indigo font-bold">LangChain</span>
-                    <span class="tech-tag text-indigo font-bold">GPT-4o</span>
-                    <span class="tech-tag text-pink font-bold">n8n</span>
-                    <span class="tech-tag text-blue">Next.js</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Firebase</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section id="pricing">
-            <div class="container">
-                <div class="text-center mb-16 fade-up">
-                    <h2 class="text-pink font-bold text-sm tracking-widest uppercase mb-2">Cost & Investment</h2>
-                    <h3 class="font-2xl font-bold">Custom Pricing per Business</h3>
-                    <p class="text-muted mt-2 mx-auto" style="max-width: 600px;">
-                        We don't believe in one-size-fits-all packages. Our pricing is determined by your business
-                        category, volume of work, and the specific ROI we can generate for you.
+            <div class="grid md:grid-cols-3 gap-px bg-zinc-800 border border-zinc-800">
+                <!-- Step 1 -->
+                <div class="bg-black p-8 md:p-16 fade-in group relative overflow-hidden">
+                    <div class="text-zinc-800 font-heading font-bold text-6xl md:text-7xl mb-8 md:mb-12 group-hover:text-white transition-colors duration-500">01</div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white">The Extraction</h3>
+                    <p class="text-base md:text-lg text-zinc-400 leading-relaxed font-light">
+                        No scheduling nightmares. Drop a 15-minute unfiltered voice note on WhatsApp while commuting. Give us the raw insight; we handle the polish.
                     </p>
                 </div>
 
-                <div class="card-base fade-up"
-                    style="background: rgba(255,255,255,0.03); max-width: 1000px; margin: 0 auto; padding: 4rem; border-radius: 2rem; border-color: rgba(255,255,255,0.05);">
-                    <div class="text-center mb-12">
-                        <h4 class="font-2xl font-bold text-white mb-2" style="letter-spacing: -0.02em;">How we calculate
-                            your investment:</h4>
+                <!-- Step 2 -->
+                <div class="bg-black p-8 md:p-16 fade-in delay-100 group relative overflow-hidden">
+                    <div class="text-zinc-800 font-heading font-bold text-6xl md:text-7xl mb-8 md:mb-12 group-hover:text-accent transition-colors duration-500">02</div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white">The Engineering</h3>
+                    <p class="text-base md:text-lg text-zinc-400 leading-relaxed font-light">
+                        We systematically translate your raw IP into a full month of premium LinkedIn text posts, carousels, and thought-leadership assets engineered to convert.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-black p-8 md:p-16 fade-in delay-200 group relative overflow-hidden">
+                    <div class="text-zinc-800 font-heading font-bold text-6xl md:text-7xl mb-8 md:mb-12 group-hover:text-gold transition-colors duration-500">03</div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white">The Expansion</h3>
+                    <p class="text-base md:text-lg text-zinc-400 leading-relaxed font-light">
+                        Ghost Engagement. We spend 1 hour daily inside your account natively engaging with top VCs and founders to ruthlessly scale your network.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: The Backend Ecosystem -->
+    <section class="py-24 md:py-40 px-6 border-y border-white/5 bg-surface relative overflow-hidden">
+        <!-- Subtle architectural line -->
+        <div class="absolute right-1/4 top-0 bottom-0 w-px bg-white/5 hidden md:block"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10 fade-in">
+            <div class="inline-block px-3 py-1 border border-zinc-700 text-zinc-400 text-[10px] md:text-xs font-semibold tracking-widest uppercase mb-8 md:mb-10">Infrastructure Upgrade</div>
+            <h2 class="font-heading text-4xl md:text-7xl font-bold tracking-tighter mb-8 md:mb-10">Stop Leaking Trust.</h2>
+            
+            <div class="space-y-6 md:space-y-8 text-lg md:text-xl text-zinc-300 font-light leading-relaxed">
+                <p>
+                    Building your personal authority will drive massive traffic to your company. But if your entire corporate online presence is fractured or invisible, those elite leads bounce immediately.
+                </p>
+                <p>
+                    As part of our complete ecosystem, my engineering team doesn't just build a website; we engineer your company's total digital footprint. From search authority (SEO) to cohesive brand ecosystems, we ensure your corporate presence matches the precise, high-end authority of your new personal shadow.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: About The Architect -->
+    <section class="py-24 md:py-40 px-6">
+        <div class="max-w-6xl mx-auto fade-in">
+            <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="relative w-full aspect-[3/4] md:aspect-[4/5] bg-surface overflow-hidden group border border-white/10">
+                        <!-- Grayscale and reduced contrast for Brutalist Luxury mood. Hover reveals color. -->
+                        <img src="profile.jpg" alt="Hafiz Ahmed" class="w-full h-full object-cover grayscale contrast-125 opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+                        
+                        <div class="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 z-10 pointer-events-none">
+                            <div class="w-8 md:w-12 h-px bg-gold mb-3 md:mb-4 transition-all duration-500 group-hover:w-24"></div>
+                            <div class="text-[10px] md:text-xs uppercase tracking-widest text-zinc-300">Executive Growth Partner</div>
+                        </div>
                     </div>
-
-                    <div class="flex flex-col md:flex-row gap-12 justify-between">
-                        <!-- Column 1 -->
-                        <div class="flex-1">
-                            <h5 class="text-indigo font-bold mb-6 uppercase tracking-widest text-sm"
-                                style="color: #818cf8;">Business Type</h5>
-                            <ul class="flex flex-col gap-4"
-                                style="list-style-type: disc; padding-left: 1.2rem; color: #a1a1aa;">
-                                <li class="text-sm">Real Estate & High-Ticket</li>
-                                <li class="text-sm">E-commerce & Retail</li>
-                                <li class="text-sm">SaaS & Tech Startups</li>
-                                <li class="text-sm">Service Agencies</li>
-                            </ul>
-                        </div>
-
-                        <!-- Column 2 -->
-                        <div class="flex-1">
-                            <h5 class="text-pink font-bold mb-6 uppercase tracking-widest text-sm"
-                                style="color: #f472b6;">Volume of Work</h5>
-                            <ul class="flex flex-col gap-4"
-                                style="list-style-type: disc; padding-left: 1.2rem; color: #a1a1aa;">
-                                <li class="text-sm">Single Flow Automation</li>
-                                <li class="text-sm">Full Growth Ecosystem</li>
-                                <li class="text-sm">Ongoing System Ops</li>
-                            </ul>
-                        </div>
-
-                        <!-- Column 3 -->
-                        <div class="flex-1">
-                            <h5 class="text-green font-bold mb-6 uppercase tracking-widest text-sm"
-                                style="color: #4ade80;">Value Created</h5>
-                            <p class="text-muted text-sm leading-relaxed mb-8" style="color: #a1a1aa;">
-                                Our fee is always structured to ensure you get a significant positive return on your
-                                investment.
-                            </p>
-                            <a href="#audit" class="btn-primary w-full justify-center"
-                                style="background: #6366f1; border: none; box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4); padding: 1.25rem;">
-                                Get Custom Quote
+                </div>
+                <div class="md:col-span-7">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold tracking-tighter mb-8 md:mb-10">The Architect.</h2>
+                    <div class="space-y-6 text-lg md:text-xl text-zinc-300 font-light leading-relaxed">
+                        <p>
+                            I am not a creative writer. I am a Computer Science Engineer.
+                        </p>
+                        <p>
+                            I don't rely on generic AI fluff, erratic inspiration, or bloated marketing agency bureaucracy. I treat your personal brand and corporate web presence as a precise, scalable, and automated system.
+                        </p>
+                        <p>
+                            Logic. Automation. High-converting IP. That is how we build the shadow.
+                        </p>
+                        <div class="pt-4">
+                            <a href="https://www.linkedin.com/in/thehafiz/" target="_blank" class="inline-flex items-center gap-2 text-gold hover:text-white transition-colors uppercase tracking-widest text-xs font-semibold">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                Connect with Hafiz
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Audit Form -->
-        <section id="audit">
-            <div class="container audit-split fade-up">
+    <!-- SECTION 6: The Frictionless Close -->
+    <section id="contact" class="py-24 md:py-40 px-6 bg-surface border-t border-white/10">
+        <div class="max-w-3xl mx-auto fade-in">
+            <h2 class="font-heading text-5xl md:text-[6rem] font-bold tracking-tighter mb-16 md:mb-20 text-white leading-tight">
+                Ready to scale your shadow?
+            </h2>
+            
+            <form id="contact-form" class="space-y-8 md:space-y-12">
                 <div>
-                    <h2 class="font-2xl font-bold mb-4">Let's Fix Your Business.</h2>
-                    <p class="text-muted text-lg mb-8">
-                        Get a <strong class="text-white">Free Video Audit</strong> & <strong class="text-white">AI Cost
-                            Reduction Roadmap</strong>.<br><br>
-                        Stop guessing. We will show you exactly where to cut costs and automate.
-                    </p>
-                    <div class="flex items-center gap-4 text-sm text-muted">
-                        <div class="flex">
-                            <div
-                                style="width:32px; height:32px; background:#333; border-radius:50%; border:2px solid black;">
-                            </div>
-                            <div
-                                style="width:32px; height:32px; background:#444; border-radius:50%; border:2px solid black; margin-left:-10px;">
-                            </div>
-                            <div
-                                style="width:32px; height:32px; background:#555; border-radius:50%; border:2px solid black; margin-left:-10px;">
-                            </div>
-                        </div>
-                        <span>Joined by Dhaka's Top Founders</span>
+                    <input type="text" id="form-name" aria-label="Full Name" class="w-full brutalist-input font-heading text-xl md:text-2xl" placeholder="Full Name" required>
+                </div>
+                
+                <div>
+                    <input type="url" id="form-linkedin" aria-label="LinkedIn URL" class="w-full brutalist-input font-heading text-xl md:text-2xl" placeholder="LinkedIn URL" required>
+                </div>
+                
+                <div class="pt-6 md:pt-8">
+                    <button type="submit" class="w-full py-5 md:py-6 bg-white text-black font-heading font-bold text-lg md:text-2xl uppercase tracking-wider hover:bg-gold hover:text-white active:scale-[0.98] transition-all duration-500 shadow-xl">
+                        Request System Breakdown
+                    </button>
+                </div>
+            </form>
+            
+            <div class="mt-16 md:mt-20 pt-8 md:pt-10 border-t border-zinc-800 text-center">
+                <a href="https://wa.me/8801325886050" target="_blank" class="inline-flex items-center justify-center gap-3 md:gap-4 text-zinc-400 hover:text-white font-medium transition-colors text-base md:text-lg group">
+                    <div class="p-2 rounded-full bg-white/5 group-hover:bg-gold/10 transition-colors">
+                        <i data-lucide="mic" class="w-4 h-4 md:w-5 md:h-5 text-gold group-hover:scale-110 transition-transform"></i>
                     </div>
-                </div>
-
-                <div class="card-base" style="padding: 2rem;">
-                    <form id="auditForm" class="flex flex-col gap-4">
-                        <div id="formSuccess" class="hidden text-center py-12">
-                            <div class="flex-center mb-4">
-                                <div class="bg-green-500/20 text-green p-4 rounded-full"><i data-lucide="check"
-                                        size="32"></i></div>
-                            </div>
-                            <h3 class="font-xl font-bold mb-2 text-white">Request Received!</h3>
-                            <p class="text-muted">Check your email for the roadmap.</p>
-                        </div>
-
-                        <div id="formFields">
-                            <div class="flex flex-col gap-1">
-                                <label class="font-xs font-bold uppercase text-muted">Full Name</label>
-                                <input type="text" class="form-input" placeholder="Adnan Chowdhury" required>
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <label class="font-xs font-bold uppercase text-muted">Business Website</label>
-                                <input type="text" class="form-input" placeholder="example.com">
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <label class="font-xs font-bold uppercase text-muted">Biggest Challenge</label>
-                                <select class="form-select">
-                                    <option>High Operational Costs</option>
-                                    <option>Repetitive Manual Tasks</option>
-                                    <option>Missed Leads</option>
-                                    <option>Scaling Issues</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn-primary w-full justify-center mt-4 py-4">
-                                Get Free Roadmap
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    <span>Too busy to type? <span class="hidden sm:inline">Click here to </span>Drop a voice note.</span>
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="py-12 border-t border-white/5 bg-black/30">
-            <div class="container flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="footer-brand">
-                    <h4 class="font-lg font-bold text-white mb-2">NETWORX.</h4>
-                    <p class="text-muted font-sm">Engineering the future of autonomous growth.</p>
-                </div>
-                <div class="flex gap-6">
-                    <a href="#" class="text-muted hover:text-white transition-colors"><i
-                            data-lucide="instagram"></i></a>
-                    <a href="#" class="text-muted hover:text-white transition-colors"><i data-lucide="twitter"></i></a>
-                    <a href="https://www.facebook.com/tapflowsolutions" target="_blank"
-                        class="text-muted hover:text-white transition-colors"><i data-lucide="facebook"></i></a>
-                    <a href="#" class="text-muted hover:text-white transition-colors"><i data-lucide="linkedin"></i></a>
-                </div>
-                <p class="text-muted font-xs">&copy; 2026 NETWORX Growth Agency. All rights reserved.</p>
-            </div>
-        </footer>
+    <!-- Footer -->
+    <footer class="py-8 md:py-12 px-6 border-t border-white/5 text-center flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-[10px] md:text-xs text-zinc-600 font-medium tracking-widest uppercase">
+        <div class="flex items-center gap-4">
+            <p>&copy; 2026 NETWORX.</p>
+            <a href="https://www.linkedin.com/company/thenetworxltd/" target="_blank" class="hover:text-white transition-colors" aria-label="Company LinkedIn">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+        </div>
+        <p class="mt-4 md:mt-0">Engineered For Growth.</p>
+    </footer>
 
-    </main>
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
 
-    <script src="script.js"></script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('py-6', 'md:py-8');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+                navbar.classList.add('py-6', 'md:py-8');
+            }
+        });
+
+        // Intersection Observer for scroll fade-in-up animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => observer.observe(el));
+        });
+
+        // WhatsApp Form Submission Logic
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('form-name').value;
+                const linkedin = document.getElementById('form-linkedin').value;
+                const message = `Hi Hafiz, I want to request a System Breakdown.%0A%0A*Name:* ${name}%0A*LinkedIn:* ${linkedin}`;
+                window.open(`https://wa.me/8801325886050?text=${message}`, '_blank');
+            });
+        }
+    </script>
 </body>
-
 </html>
